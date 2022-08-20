@@ -1,0 +1,4 @@
+---
+hostname: sample01
+
+ansible_password: password
