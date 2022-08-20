@@ -3,3 +3,12 @@
   tasks:
     - name: Example from an Ansible Playbook
       ansible.windows.win_ping:
+
+    - name: Change the hostname to "{{ hostname }}"
+      win_hostname:
+        name: "{{ hostname }}"
+      register: res
+
+    - name: Reboot
+      win_reboot:
+      when: res.reboot_required
