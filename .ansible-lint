@@ -6,6 +6,7 @@
 exclude_paths:
   - .venv/ # implicit unless exclude_paths is defined in config
   - .git/
+  - inventories/hosts.yml
 
 parseable: true
 quiet: true
