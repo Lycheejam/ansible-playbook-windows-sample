@@ -12,3 +12,18 @@
     - name: Reboot
       win_reboot:
       when: res.reboot_required
+
+    - name: Set timezone to 'Tokyo Standard Time' (GMT+09:00)
+      community.windows.win_timezone:
+        timezone: Tokyo Standard Time
+
+    - name: Set format, location and unicode to Japanese and copy settings, reboot if required
+      community.windows.win_region:
+        location: 122
+        format: ja-JP
+        unicode_language: ja-JP
+      register: result
+
+    - name: Reboot
+      ansible.windows.win_reboot:
+      when: result.restart_required
